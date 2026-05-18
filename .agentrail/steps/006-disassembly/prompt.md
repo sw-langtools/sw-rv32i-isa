@@ -1,0 +1,1 @@
+Implement canonical RV32I disassembly for the shared Instruction model, including register display, ABI alias policy, immediates, loads/stores with offset addressing, branches, jumps, FENCE, ECALL, and EBREAK. Add tests that lock down stable output expected by assembler listings and emulator demos.

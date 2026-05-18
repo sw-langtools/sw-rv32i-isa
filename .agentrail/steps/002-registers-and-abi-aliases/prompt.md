@@ -1,0 +1,1 @@
+Define the RV32I integer register model. Include x0 through x31, stable display/parsing, ABI aliases such as zero, ra, sp, gp, tp, t0-t6, s0-s11, and a0-a7, and focused tests for alias behavior and invalid registers. Keep the API small because assembler, emulator, target, and codegen will all depend on it.

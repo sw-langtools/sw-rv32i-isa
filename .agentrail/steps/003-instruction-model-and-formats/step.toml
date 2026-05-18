@@ -1,0 +1,8 @@
+number = 3
+slug = "instruction-model-and-formats"
+status = "pending"
+description = "Define the RV32I Instruction enum and supporting operand enums/helpers for U,..."
+role = "production"
+context_files = []
+created_at = "2026-05-18T16:00:18"
+commits = []

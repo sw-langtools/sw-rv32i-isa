@@ -1,0 +1,1 @@
+Expand decode tests for illegal and reserved RV32I encodings. Cover invalid opcodes, unsupported funct3/funct7 combinations, malformed shifts, reserved system forms if they are outside the initial scope, and alignment-sensitive immediate forms where applicable. Keep the tests in the ISA crate so downstream crates do not duplicate bit-level legality checks.

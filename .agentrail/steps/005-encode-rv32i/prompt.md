@@ -1,0 +1,1 @@
+Implement encode from the shared Instruction model to 32-bit RV32I instruction words. Use the same format helpers as decode so assembler and codegen can rely on one bit-layout implementation. Add tests for representative instructions from each family and verify invalid immediates or operand combinations return clear errors where the model allows them.

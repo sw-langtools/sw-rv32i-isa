@@ -1,0 +1,1 @@
+Implement decode from 32-bit little-endian RV32I instruction words into the shared Instruction model. Cover U, J, B, I, S, R, load/store, branch, arithmetic, system, and fence cases. Return typed decode errors for illegal, reserved, or malformed encodings. Add TDD coverage by instruction family and include representative edge cases for signed immediates.

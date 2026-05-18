@@ -1,0 +1,8 @@
+number = 1
+slug = "scaffold-crate"
+status = "pending"
+description = "Scaffold the sw-rv32i-isa Rust crate. Add Cargo.toml, src/lib.rs, baseline RE..."
+role = "production"
+context_files = []
+created_at = "2026-05-18T16:00:09"
+commits = []

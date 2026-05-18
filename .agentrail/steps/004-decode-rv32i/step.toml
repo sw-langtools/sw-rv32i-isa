@@ -1,0 +1,8 @@
+number = 4
+slug = "decode-rv32i"
+status = "pending"
+description = "Implement decode from 32-bit little-endian RV32I instruction words into the s..."
+role = "production"
+context_files = []
+created_at = "2026-05-18T16:00:24"
+commits = []

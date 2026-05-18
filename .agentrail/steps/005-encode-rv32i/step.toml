@@ -1,0 +1,8 @@
+number = 5
+slug = "encode-rv32i"
+status = "pending"
+description = "Implement encode from the shared Instruction model to 32-bit RV32I instructio..."
+role = "production"
+context_files = []
+created_at = "2026-05-18T16:00:29"
+commits = []

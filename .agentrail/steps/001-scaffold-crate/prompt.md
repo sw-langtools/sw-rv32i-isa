@@ -1,0 +1,1 @@
+Scaffold the sw-rv32i-isa Rust crate. Add Cargo.toml, src/lib.rs, baseline README or docs as appropriate, and initial smoke tests. Follow the shared crate style from sw-isa-core and the CDP1802 ISA precedent where useful. Run cargo fmt and cargo test if available, then commit the scaffold before completing this step.

@@ -1,0 +1,8 @@
+number = 7
+slug = "illegal-and-reserved-tests"
+status = "pending"
+description = "Expand decode tests for illegal and reserved RV32I encodings. Cover invalid o..."
+role = "production"
+context_files = []
+created_at = "2026-05-18T16:00:38"
+commits = []
