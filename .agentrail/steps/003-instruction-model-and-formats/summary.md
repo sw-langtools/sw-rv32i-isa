@@ -1,0 +1,1 @@
+Added the RV32I semantic instruction model, opcode mnemonics, format tags, immediate extraction helpers, fence sets, operation enums, and focused instruction-model tests.
