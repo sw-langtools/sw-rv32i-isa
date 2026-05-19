@@ -6,6 +6,10 @@
 
 #![no_std]
 
+pub mod register;
+
+pub use register::{Reg, parse_register};
+
 /// RV32I byte address.
 #[derive(Copy, Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
 pub struct Addr(pub u32);
@@ -38,26 +42,6 @@ impl sw_isa_core::Mnemonic for Opcode {
     fn mnemonic(&self) -> &'static str {
         match self {
             Opcode::Invalid => "invalid",
-        }
-    }
-}
-
-/// Placeholder register used until the RV32I register model is introduced.
-#[derive(Copy, Clone, Debug, Eq, PartialEq)]
-pub enum Reg {
-    X0,
-}
-
-impl sw_isa_core::register::RegisterId for Reg {
-    fn index(self) -> u32 {
-        match self {
-            Reg::X0 => 0,
-        }
-    }
-
-    fn name(self) -> &'static str {
-        match self {
-            Reg::X0 => "x0",
         }
     }
 }

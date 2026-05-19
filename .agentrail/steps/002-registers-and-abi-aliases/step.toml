@@ -1,6 +1,6 @@
 number = 2
 slug = "registers-and-abi-aliases"
-status = "pending"
+status = "in-progress"
 description = "Define the RV32I integer register model. Include x0 through x31, stable displ..."
 role = "production"
 context_files = []
