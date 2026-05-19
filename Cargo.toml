@@ -1,0 +1,9 @@
+[package]
+name = "sw-rv32i-isa"
+version = "0.1.0"
+edition = "2024"
+description = "RV32I ISA description: opcodes, encoding, decoding, disassembly"
+license = "MIT"
+
+[dependencies]
+sw-isa-core = { path = "../sw-isa-core" }

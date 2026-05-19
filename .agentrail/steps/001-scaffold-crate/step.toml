@@ -1,6 +1,6 @@
 number = 1
 slug = "scaffold-crate"
-status = "pending"
+status = "in-progress"
 description = "Scaffold the sw-rv32i-isa Rust crate. Add Cargo.toml, src/lib.rs, baseline RE..."
 role = "production"
 context_files = []
