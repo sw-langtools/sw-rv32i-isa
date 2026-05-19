@@ -1,0 +1,1 @@
+Added the RV32I integer register model with x0 through x31, canonical display/parsing, ABI aliases, FromStr support, and focused register tests.

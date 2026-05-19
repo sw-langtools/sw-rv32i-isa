@@ -1,8 +1,9 @@
 number = 2
 slug = "registers-and-abi-aliases"
-status = "in-progress"
+status = "completed"
 description = "Define the RV32I integer register model. Include x0 through x31, stable displ..."
 role = "production"
 context_files = []
 created_at = "2026-05-18T16:00:13"
-commits = []
+completed_at = "2026-05-18T19:25:01"
+commits = ["b07f9c3588b7a60db3c496593e81333a82ce5841"]
