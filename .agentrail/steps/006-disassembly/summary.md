@@ -1,0 +1,1 @@
+Implemented canonical RV32I disassembly using x-register names, decimal immediates, offset(base) memory operands, fence sets, and stable system instruction text.
