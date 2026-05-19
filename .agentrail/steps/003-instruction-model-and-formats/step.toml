@@ -1,6 +1,6 @@
 number = 3
 slug = "instruction-model-and-formats"
-status = "pending"
+status = "in-progress"
 description = "Define the RV32I Instruction enum and supporting operand enums/helpers for U,..."
 role = "production"
 context_files = []

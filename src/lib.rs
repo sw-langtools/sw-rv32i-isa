@@ -6,8 +6,14 @@
 
 #![no_std]
 
+pub mod format;
+pub mod instruction;
+pub mod opcode;
 pub mod register;
 
+pub use format::{Format, b_imm, fits_signed, i_imm, j_imm, s_imm, sign_extend, u_imm};
+pub use instruction::{BranchCond, FenceSet, ImmOp, Instruction, LoadWidth, RegOp, StoreWidth};
+pub use opcode::Opcode;
 pub use register::{Reg, parse_register};
 
 /// RV32I byte address.
@@ -31,40 +37,6 @@ impl sw_isa_core::address::AddressType for Addr {
 /// RV32I architecture marker.
 #[derive(Copy, Clone, Debug, Eq, PartialEq)]
 pub struct Rv32i;
-
-/// Placeholder opcode used until the instruction set model is introduced.
-#[derive(Copy, Clone, Debug, Eq, PartialEq)]
-pub enum Opcode {
-    Invalid,
-}
-
-impl sw_isa_core::Mnemonic for Opcode {
-    fn mnemonic(&self) -> &'static str {
-        match self {
-            Opcode::Invalid => "invalid",
-        }
-    }
-}
-
-/// Placeholder instruction used until the RV32I instruction enum is introduced.
-#[derive(Copy, Clone, Debug, Eq, PartialEq)]
-pub enum Instruction {
-    Invalid,
-}
-
-/// Placeholder fixed 32-bit instruction format.
-#[derive(Copy, Clone, Debug, Eq, PartialEq)]
-pub enum Format {
-    Fixed32,
-}
-
-impl sw_isa_core::format::FormatInfo for Format {
-    fn size_bytes(&self) -> usize {
-        match self {
-            Format::Fixed32 => 4,
-        }
-    }
-}
 
 impl sw_isa_core::Architecture for Rv32i {
     type Opcode = Opcode;

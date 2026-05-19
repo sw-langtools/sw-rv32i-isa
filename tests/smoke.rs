@@ -13,13 +13,10 @@ fn architecture_metadata_matches_rv32i() {
 
 #[test]
 fn placeholder_types_are_wired_to_core_traits() {
-    assert_eq!(Opcode::Invalid.mnemonic(), "invalid");
+    assert_eq!(Opcode::Ebreak.mnemonic(), "ebreak");
     assert_eq!(sw_isa_core::register::RegisterId::index(Reg::X0), 0);
     assert_eq!(sw_isa_core::register::RegisterId::name(Reg::X0), "x0");
-    assert_eq!(
-        sw_isa_core::format::FormatInfo::size_bytes(&Format::Fixed32),
-        4
-    );
+    assert_eq!(sw_isa_core::format::FormatInfo::size_bytes(&Format::R), 4);
 }
 
 #[test]
@@ -45,7 +42,7 @@ fn decode_and_encode_are_explicit_stubs() {
 
     let mut out = [0; 4];
     assert_eq!(
-        Rv32i::encode(&Instruction::Invalid, &mut out),
+        Rv32i::encode(&Instruction::Ebreak, &mut out),
         Err(sw_isa_core::EncodeError::InvalidOperands)
     );
 }
