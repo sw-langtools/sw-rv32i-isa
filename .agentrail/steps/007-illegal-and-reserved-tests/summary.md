@@ -1,0 +1,1 @@
+Expanded ISA decode legality tests across invalid opcodes, unsupported funct3/funct7 combinations, malformed shifts, reserved fence/system forms, and branch/jump immediate bit behavior.
