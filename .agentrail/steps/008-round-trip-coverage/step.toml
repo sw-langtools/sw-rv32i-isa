@@ -1,6 +1,6 @@
 number = 8
 slug = "round-trip-coverage"
-status = "pending"
+status = "in-progress"
 description = "Add encode/decode round-trip coverage by RV32I instruction family. Use repres..."
 role = "production"
 context_files = []
