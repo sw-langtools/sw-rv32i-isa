@@ -6,11 +6,13 @@
 
 #![no_std]
 
+pub mod decode;
 pub mod format;
 pub mod instruction;
 pub mod opcode;
 pub mod register;
 
+pub use decode::decode_word;
 pub use format::{Format, b_imm, fits_signed, i_imm, j_imm, s_imm, sign_extend, u_imm};
 pub use instruction::{BranchCond, FenceSet, ImmOp, Instruction, LoadWidth, RegOp, StoreWidth};
 pub use opcode::Opcode;
@@ -60,7 +62,8 @@ impl sw_isa_core::Architecture for Rv32i {
             return Err(sw_isa_core::DecodeError::Truncated);
         }
 
-        Err(sw_isa_core::DecodeError::Invalid)
+        let word = u32::from_le_bytes([bytes[0], bytes[1], bytes[2], bytes[3]]);
+        decode_word(word).map(|insn| (insn, 4))
     }
 
     fn encode(
