@@ -1,0 +1,1 @@
+Implemented RV32I little-endian word decode for U, J, B, I, S, R, load/store, branch, arithmetic, FENCE, ECALL, and EBREAK instructions with invalid/reserved encodings mapped to DecodeError::Invalid.

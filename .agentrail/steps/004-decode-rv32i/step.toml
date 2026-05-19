@@ -1,8 +1,9 @@
 number = 4
 slug = "decode-rv32i"
-status = "in-progress"
+status = "completed"
 description = "Implement decode from 32-bit little-endian RV32I instruction words into the s..."
 role = "production"
 context_files = []
 created_at = "2026-05-18T16:00:24"
-commits = []
+completed_at = "2026-05-18T19:38:10"
+commits = ["2c9f1f9b63262d08256fdba368362d08f75953f3"]
