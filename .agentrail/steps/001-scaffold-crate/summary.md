@@ -1,0 +1,1 @@
+Scaffolded the sw-rv32i-isa Rust crate with Cargo metadata, no_std architecture placeholder types, README, gitignore, lockfile, and smoke tests wired to sw-isa-core.

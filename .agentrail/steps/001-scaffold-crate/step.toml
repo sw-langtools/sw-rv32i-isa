@@ -1,8 +1,9 @@
 number = 1
 slug = "scaffold-crate"
-status = "in-progress"
+status = "completed"
 description = "Scaffold the sw-rv32i-isa Rust crate. Add Cargo.toml, src/lib.rs, baseline RE..."
 role = "production"
 context_files = []
 created_at = "2026-05-18T16:00:09"
-commits = []
+completed_at = "2026-05-18T19:19:13"
+commits = ["1a522c6f1653e07ee7cabfda36fca319c425c06c"]
