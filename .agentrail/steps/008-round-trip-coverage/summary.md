@@ -1,0 +1,1 @@
+Expanded encode/decode round-trip coverage across RV32I instruction families with representative and boundary immediates for U, J, B, I, S, register, fence, and system forms.

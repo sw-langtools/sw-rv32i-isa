@@ -1,8 +1,9 @@
 number = 8
 slug = "round-trip-coverage"
-status = "in-progress"
+status = "completed"
 description = "Add encode/decode round-trip coverage by RV32I instruction family. Use repres..."
 role = "production"
 context_files = []
 created_at = "2026-05-18T16:00:42"
-commits = []
+completed_at = "2026-05-19T14:53:00"
+commits = ["b1b02bfcbc682621bbf2749c42337e41d2936a48"]
