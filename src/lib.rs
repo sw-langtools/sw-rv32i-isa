@@ -7,6 +7,7 @@
 #![no_std]
 
 pub mod decode;
+pub mod disassemble;
 pub mod encode;
 pub mod format;
 pub mod instruction;
@@ -14,6 +15,7 @@ pub mod opcode;
 pub mod register;
 
 pub use decode::decode_word;
+pub use disassemble::disassemble;
 pub use encode::encode_word;
 pub use format::{Format, b_imm, fits_signed, i_imm, j_imm, s_imm, sign_extend, u_imm};
 pub use instruction::{BranchCond, FenceSet, ImmOp, Instruction, LoadWidth, RegOp, StoreWidth};
@@ -77,7 +79,7 @@ impl sw_isa_core::Architecture for Rv32i {
         Ok(4)
     }
 
-    fn disassemble(_insn: &Self::Instruction, w: &mut dyn core::fmt::Write) -> core::fmt::Result {
-        w.write_str("invalid")
+    fn disassemble(insn: &Self::Instruction, w: &mut dyn core::fmt::Write) -> core::fmt::Result {
+        disassemble(*insn, w)
     }
 }

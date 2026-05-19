@@ -1,6 +1,6 @@
 number = 6
 slug = "disassembly"
-status = "pending"
+status = "in-progress"
 description = "Implement canonical RV32I disassembly for the shared Instruction model, inclu..."
 role = "production"
 context_files = []
