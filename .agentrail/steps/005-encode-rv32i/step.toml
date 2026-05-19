@@ -1,6 +1,6 @@
 number = 5
 slug = "encode-rv32i"
-status = "pending"
+status = "in-progress"
 description = "Implement encode from the shared Instruction model to 32-bit RV32I instructio..."
 role = "production"
 context_files = []

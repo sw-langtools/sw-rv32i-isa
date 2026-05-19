@@ -7,12 +7,14 @@
 #![no_std]
 
 pub mod decode;
+pub mod encode;
 pub mod format;
 pub mod instruction;
 pub mod opcode;
 pub mod register;
 
 pub use decode::decode_word;
+pub use encode::encode_word;
 pub use format::{Format, b_imm, fits_signed, i_imm, j_imm, s_imm, sign_extend, u_imm};
 pub use instruction::{BranchCond, FenceSet, ImmOp, Instruction, LoadWidth, RegOp, StoreWidth};
 pub use opcode::Opcode;
@@ -66,11 +68,13 @@ impl sw_isa_core::Architecture for Rv32i {
         decode_word(word).map(|insn| (insn, 4))
     }
 
-    fn encode(
-        _insn: &Self::Instruction,
-        _out: &mut [u8],
-    ) -> Result<usize, sw_isa_core::EncodeError> {
-        Err(sw_isa_core::EncodeError::InvalidOperands)
+    fn encode(insn: &Self::Instruction, out: &mut [u8]) -> Result<usize, sw_isa_core::EncodeError> {
+        if out.len() < Self::MAX_INSTR_BYTES {
+            return Err(sw_isa_core::EncodeError::BufferTooSmall);
+        }
+        let word = encode_word(*insn)?;
+        out[..4].copy_from_slice(&word.to_le_bytes());
+        Ok(4)
     }
 
     fn disassemble(_insn: &Self::Instruction, w: &mut dyn core::fmt::Write) -> core::fmt::Result {

@@ -41,8 +41,6 @@ fn decode_and_encode_are_explicit_stubs() {
     );
 
     let mut out = [0; 4];
-    assert_eq!(
-        Rv32i::encode(&Instruction::Ebreak, &mut out),
-        Err(sw_isa_core::EncodeError::InvalidOperands)
-    );
+    assert_eq!(Rv32i::encode(&Instruction::Ebreak, &mut out), Ok(4));
+    assert_eq!(out, 0x0010_0073u32.to_le_bytes());
 }
