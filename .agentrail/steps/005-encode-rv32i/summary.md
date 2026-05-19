@@ -1,0 +1,1 @@
+Implemented RV32I encoding from the shared Instruction model, including little-endian Architecture::encode output, immediate validation, and family-level encode/decode round-trip tests.
