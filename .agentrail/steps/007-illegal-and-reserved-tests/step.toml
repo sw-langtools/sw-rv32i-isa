@@ -1,6 +1,6 @@
 number = 7
 slug = "illegal-and-reserved-tests"
-status = "pending"
+status = "in-progress"
 description = "Expand decode tests for illegal and reserved RV32I encodings. Cover invalid o..."
 role = "production"
 context_files = []

@@ -154,6 +154,88 @@ fn rejects_reserved_or_malformed_encodings() {
     }
 }
 
+#[test]
+fn rejects_invalid_base_opcodes() {
+    for word in [
+        0x0000_0000,
+        0x0000_0001,
+        0x0000_0002,
+        0x0000_000b,
+        0x0000_002b,
+        0x0000_005b,
+        0xffff_ffff,
+    ] {
+        assert_eq!(decode_word(word), Err(sw_isa_core::DecodeError::Invalid));
+    }
+}
+
+#[test]
+fn rejects_unsupported_funct3_combinations() {
+    for word in [
+        i_type(0, Reg::X1, 0b001, Reg::X2, 0b1100111),
+        i_type(0, Reg::X1, 0b111, Reg::X2, 0b1100111),
+        b_type(4, Reg::X1, Reg::X2, 0b010),
+        b_type(4, Reg::X1, Reg::X2, 0b011),
+        i_type(0, Reg::X1, 0b011, Reg::X2, 0b0000011),
+        i_type(0, Reg::X1, 0b110, Reg::X2, 0b0000011),
+        s_type(0, Reg::X1, Reg::X2, 0b011),
+        s_type(0, Reg::X1, Reg::X2, 0b111),
+    ] {
+        assert_eq!(decode_word(word), Err(sw_isa_core::DecodeError::Invalid));
+    }
+}
+
+#[test]
+fn rejects_malformed_shift_and_register_op_funct7_values() {
+    for word in [
+        shift_imm(0b0000001, 0, Reg::X1, 0b001, Reg::X2),
+        shift_imm(0b0100000, 0, Reg::X1, 0b001, Reg::X2),
+        shift_imm(0b0000001, 0, Reg::X1, 0b101, Reg::X2),
+        shift_imm(0b1111111, 31, Reg::X1, 0b101, Reg::X2),
+        r_type(0b0000001, Reg::X1, Reg::X2, 0b000, Reg::X3),
+        r_type(0b0100000, Reg::X1, Reg::X2, 0b001, Reg::X3),
+        r_type(0b1111111, Reg::X1, Reg::X2, 0b101, Reg::X3),
+    ] {
+        assert_eq!(decode_word(word), Err(sw_isa_core::DecodeError::Invalid));
+    }
+}
+
+#[test]
+fn rejects_reserved_fence_and_system_forms() {
+    for word in [
+        (1 << 12) | 0b0001111,
+        (Reg::X1.index_u8() as u32) << 7 | 0b0001111,
+        (Reg::X1.index_u8() as u32) << 15 | 0b0001111,
+        (1 << 28) | 0b0001111,
+        0x0000_1073,
+        0x0020_0073,
+        0x3050_2073,
+        0xffff_f073,
+    ] {
+        assert_eq!(decode_word(word), Err(sw_isa_core::DecodeError::Invalid));
+    }
+}
+
+#[test]
+fn branch_and_jump_decode_clear_unencoded_low_offset_bits() {
+    assert_eq!(
+        decode_word(b_type(6, Reg::X1, Reg::X2, 0b000)),
+        Ok(Instruction::Branch {
+            cond: BranchCond::Eq,
+            rs1: Reg::X1,
+            rs2: Reg::X2,
+            offset: 6,
+        })
+    );
+    assert_eq!(
+        decode_word(j_type(6, 1, 0b1101111)),
+        Ok(Instruction::Jal {
+            rd: Reg::X1,
+            offset: 6,
+        })
+    );
+}
+
 fn i_type(imm: i32, rs1: Reg, funct3: u32, rd: Reg, opcode: u32) -> u32 {
     ((imm as u32 & 0x0fff) << 20)
         | ((rs1.index_u8() as u32) << 15)
