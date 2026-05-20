@@ -12,6 +12,7 @@ pub mod encode;
 pub mod format;
 pub mod instruction;
 pub mod opcode;
+pub mod profile;
 pub mod register;
 
 pub use decode::decode_word;
@@ -20,6 +21,7 @@ pub use encode::encode_word;
 pub use format::{Format, b_imm, fits_signed, i_imm, j_imm, s_imm, sign_extend, u_imm};
 pub use instruction::{BranchCond, FenceSet, ImmOp, Instruction, LoadWidth, RegOp, StoreWidth};
 pub use opcode::Opcode;
+pub use profile::{BaseIsa, Extension, IsaProfile, ProfileError};
 pub use register::{Reg, parse_register};
 
 /// RV32I byte address.

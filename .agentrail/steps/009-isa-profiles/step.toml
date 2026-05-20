@@ -1,6 +1,6 @@
 number = 9
 slug = "isa-profiles"
-status = "pending"
+status = "in-progress"
 description = "Add shared ISA profile support in this crate. Model rv32i first with the shap..."
 role = "legacy"
 context_files = []
