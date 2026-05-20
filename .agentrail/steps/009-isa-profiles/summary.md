@@ -1,0 +1,1 @@
+Added shared ISA profile support for rv32e, rv32i, and rv32im shape placeholders, with register and instruction validation plus rename timing documentation.
